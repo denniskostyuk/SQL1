@@ -20,3 +20,16 @@ SELECT *
 FROM payment
 WHERE (CAST(payment_date as date) BETWEEN "2005-06-15" AND "2005-06-18") AND amount > 10
 ORDER BY payment_date;
+
+## Задание 3
+Получите последние пять аренд фильмов.
+
+### Ответ 3
+
+SELECT *
+FROM rental
+ORDER BY rental_date 
+LIMIT 5;
+
+
+
