@@ -44,15 +44,15 @@ LIMIT 5;
 
 SELECT *
 FROM customer
-WHERE (first_name = "Kelly" OR first_name = "Willie") AND active = 1
+WHERE (first_name = "Kelly" OR first_name = "Willie") AND active = 1;
 
 SELECT customer_id, store_id, LOWER(first_name), LOWER(last_name), email, address_id, active, create_date, last_update  
 FROM customer
-WHERE (first_name = "Kelly" OR first_name = "Willie") AND active = 1
+WHERE (first_name = "Kelly" OR first_name = "Willie") AND active = 1;
 
 SELECT customer_id, store_id, REPLACE(LOWER(first_name),'ll','pp'), REPLACE(LOWER(last_name),'ll','pp'), email, address_id, active, create_date, last_update  
 FROM customer
-WHERE (first_name = "Kelly" OR first_name = "Willie") AND active = 1
+WHERE (first_name = "Kelly" OR first_name = "Willie") AND active = 1;
 
 ## Задание 5*
 Выведите Email каждого покупателя, разделив значение Email на две отдельных колонки: в первой колонке должно быть значение, указанное до @, во второй — значение, указанное после @.
@@ -60,7 +60,7 @@ WHERE (first_name = "Kelly" OR first_name = "Willie") AND active = 1
 ### Ответ 5
 
 SELECT SUBSTRING_INDEX(email, '@', 1), RIGHT(email,LENGTH(email)-LENGTH(SUBSTRING_INDEX(email, '@', 1))-1), email 
-FROM customer
+FROM customer;
 
 ## Задание 6*
 Доработайте запрос из предыдущего задания, скорректируйте значения в новых колонках: первая буква должна быть заглавной, остальные — строчными.
@@ -68,7 +68,7 @@ FROM customer
 ### Ответ 6
 
 SELECT CONCAT(UPPER(LEFT(SUBSTRING_INDEX(email, '@', 1),1)),LOWER(RIGHT(SUBSTRING_INDEX(email, '@', 1),LENGTH(SUBSTRING_INDEX(email, '@', 1))-1))),CONCAT(UPPER(LEFT(RIGHT(email,LENGTH(email)-LENGTH(SUBSTRING_INDEX(email, '@', 1))-1),1)),LOWER(RIGHT(RIGHT(email,LENGTH(email)-LENGTH(SUBSTRING_INDEX(email, '@', 1))-1),LENGTH(RIGHT(email,LENGTH(email)-LENGTH(SUBSTRING_INDEX(email, '@', 1))-1))-1))), email 
-FROM customer
+FROM customer;
 
 
 
