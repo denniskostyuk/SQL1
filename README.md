@@ -59,6 +59,8 @@ WHERE (first_name = "Kelly" OR first_name = "Willie") AND active = 1;
 
 ### Ответ 5
 
+В задании не было, но я добавил вывод полного е-мейла, чтобы удобнее было проверять
+
 SELECT SUBSTRING_INDEX(email, '@', 1), RIGHT(email,LENGTH(email)-LENGTH(SUBSTRING_INDEX(email, '@', 1))-1), email 
 FROM customer;
 
@@ -66,6 +68,8 @@ FROM customer;
 Доработайте запрос из предыдущего задания, скорректируйте значения в новых колонках: первая буква должна быть заглавной, остальные — строчными.
 
 ### Ответ 6
+
+В задании не было, но я добавил вывод полного е-мейла, чтобы удобнее было проверять
 
 SELECT CONCAT(UPPER(LEFT(SUBSTRING_INDEX(email, '@', 1),1)),LOWER(RIGHT(SUBSTRING_INDEX(email, '@', 1),LENGTH(SUBSTRING_INDEX(email, '@', 1))-1))),CONCAT(UPPER(LEFT(RIGHT(email,LENGTH(email)-LENGTH(SUBSTRING_INDEX(email, '@', 1))-1),1)),LOWER(RIGHT(RIGHT(email,LENGTH(email)-LENGTH(SUBSTRING_INDEX(email, '@', 1))-1),LENGTH(RIGHT(email,LENGTH(email)-LENGTH(SUBSTRING_INDEX(email, '@', 1))-1))-1))), email 
 FROM customer;
