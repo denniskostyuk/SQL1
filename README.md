@@ -8,3 +8,15 @@
 SELECT DISTINCT district as район
 FROM address
 WHERE district LIKE 'K%a' AND district NOT LIKE '% %';
+
+## Задание 2
+Получите из таблицы платежей за прокат фильмов информацию по платежам, которые выполнялись в промежуток с 15 июня 2005 года по 18 июня 2005 года включительно и стоимость которых превышает 10.00.
+
+### Ответ 2
+
+В задании не было, но я еще упорядочил по дате, чтобы удобнее было проверять
+
+SELECT * 
+FROM payment
+WHERE (CAST(payment_date as date) BETWEEN "2005-06-15" AND "2005-06-18") AND amount > 10
+ORDER BY payment_date;
